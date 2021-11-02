@@ -36,7 +36,10 @@ const productosShema = new Schema({
      },
      imagenUrl:{
         type:String
-     }
+     },
+     pdfUrl:{
+      type:String
+   }
 });
 
 module.exports = mongoose.model('Productos',productosShema)

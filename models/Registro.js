@@ -35,6 +35,10 @@ const resgistroSchema = new Schema({
         unique:true,
         lowercase:true,
         trim:true
-    }
+    },
+    consulta:{
+        type:String,
+        trim:true
+    },
 })
 module.exports = mongoose.model('Registro',resgistroSchema)
