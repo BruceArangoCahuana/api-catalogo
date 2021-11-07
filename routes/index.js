@@ -5,6 +5,7 @@ const clienteController = require('../controller/clienteController');
 const productoController = require('../controller/productoController');
 const profesionController = require('../controller/profesionController');
 const emailController = require('../controller/emailController');
+const usuarioController = require('../controller/usuarioController');
 
 module.exports = function(){
     router.get('/',clienteController.clientes);
@@ -44,5 +45,12 @@ module.exports = function(){
     router.post('/email',emailController.enviarEmail);
     //eliminar email
     router.delete('/email/:idEmail',emailController.eliminarEmail);
+
+    //usuarios
+    router.post('/crear-cuenta',usuarioController.crearCuenta);
+    //ver usuarios
+    router.get('/usuario',usuarioController.listarUsuario);
+    //iniciar sesion
+    router.post('/inicio-sesion',usuarioController.inicioSesion);
     return router;
 }

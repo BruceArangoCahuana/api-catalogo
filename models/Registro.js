@@ -32,7 +32,6 @@ const resgistroSchema = new Schema({
     },
     correo:{
         type:String,
-        unique:true,
         lowercase:true,
         trim:true
     },

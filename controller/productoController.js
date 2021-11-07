@@ -16,7 +16,7 @@ exports.verProducto = async(req,res,next)=>{
         const producto = await Producto.find({});
         res.json(producto);
     }catch(error){
-        
+        res.send(error);
         return next();
     }
 }
