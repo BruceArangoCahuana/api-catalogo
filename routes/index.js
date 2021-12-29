@@ -6,30 +6,45 @@ const productoController = require('../controller/productoController');
 const profesionController = require('../controller/profesionController');
 const emailController = require('../controller/emailController');
 const usuarioController = require('../controller/usuarioController');
-
+const auth = require('../middleware/auth');
 module.exports = function(){
     router.get('/',clienteController.clientes);
 
     //producto controller
-    router.get('/producto',productoController.verProducto);
+    router.get('/producto',productoController.verProducto
+    );
     //insertar producto
-    router.post('/producto',productoController.insertarProducto);
+    router.post('/producto',
+    auth,
+    productoController.insertarProducto
+    );
     //traer para editar y traer producto
     router.get('/producto/:idProducto',productoController.traerProducto);
-    router.put('/producto-editar/:idProducto',productoController.editarProducto);
+    router.put('/producto/:idProducto',productoController.editarProducto
+    );
     //eliminar por producto
-    router.delete('/producto/:idProducto',productoController.eliminarProducto);
+    router.delete('/producto/:idProducto',productoController.eliminarProducto
+    );
     //buscar por producto
-    router.post('/producto/busqueda/:query',productoController.buscarProducto);
+    router.post('/producto/busqueda/:query',productoController.buscarProducto
+    );
 
     //registro catalogo
-    router.post('/registro',clienteController.registroCatalogo);
+    router.post('/registro',clienteController.registroCatalogo
+    );
     //ver resgitrados
-    router.get('/registro',clienteController.mostrarRegistro);
+    router.get('/registro',
+    auth,
+    clienteController.mostrarRegistro
+    );
     //ver registro por id
-    router.get('/registro/:idRegistro',clienteController.traerRegistroId);
+    router.get('/registro/:idRegistro',clienteController.traerRegistroId
+    );
     //eliminar registro
-    router.delete('/registro/:idRegistro',clienteController.eliminarRegistro);
+    router.delete('/registro/:idRegistro',
+    auth,
+    clienteController.eliminarRegistro
+    );
     //buscar registro
     router.post('/registro/busqueda/:idRegistro',clienteController.buscarRegistro);
 
@@ -40,11 +55,16 @@ module.exports = function(){
 
     
     //ver email
-    router.get('/email',emailController.verEmail);
+    router.get('/email',
+    auth,
+    emailController.verEmail
+    );
     //enviar email
     router.post('/email',emailController.enviarEmail);
     //eliminar email
-    router.delete('/email/:idEmail',emailController.eliminarEmail);
+    router.delete('/email/:idEmail',
+    auth,
+    emailController.eliminarEmail);
 
     //usuarios
     router.post('/crear-cuenta',usuarioController.crearCuenta);
