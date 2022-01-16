@@ -14,9 +14,7 @@ module.exports = function(){
     router.get('/producto',productoController.verProducto
     );
     //insertar producto
-    router.post('/producto',
-    auth,
-    productoController.insertarProducto
+    router.post('/producto',productoController.insertarProducto
     );
     //traer para editar y traer producto
     router.get('/producto/:idProducto',productoController.traerProducto);
@@ -33,17 +31,13 @@ module.exports = function(){
     router.post('/registro',clienteController.registroCatalogo
     );
     //ver resgitrados
-    router.get('/registro',
-    auth,
-    clienteController.mostrarRegistro
+    router.get('/registro',clienteController.mostrarRegistro
     );
     //ver registro por id
     router.get('/registro/:idRegistro',clienteController.traerRegistroId
     );
     //eliminar registro
-    router.delete('/registro/:idRegistro',
-    auth,
-    clienteController.eliminarRegistro
+    router.delete('/registro/:idRegistro',clienteController.eliminarRegistro
     );
     //buscar registro
     router.post('/registro/busqueda/:idRegistro',clienteController.buscarRegistro);
@@ -55,16 +49,12 @@ module.exports = function(){
 
     
     //ver email
-    router.get('/email',
-    auth,
-    emailController.verEmail
+    router.get('/email',emailController.verEmail
     );
     //enviar email
     router.post('/email',emailController.enviarEmail);
     //eliminar email
-    router.delete('/email/:idEmail',
-    auth,
-    emailController.eliminarEmail);
+    router.delete('/email/:idEmail',emailController.eliminarEmail);
 
     //usuarios
     router.post('/crear-cuenta',usuarioController.crearCuenta);

@@ -23,4 +23,6 @@ app.use(cors());
 //rutas de la app
 app.use('/',router());
 
-app.listen(process.env.PORT,()=>{console.log("servidor listo")})
+const host = '0.0.0.0';
+const port  = process.env.PORT
+app.listen(port,host,()=>{console.log("servidor listo")})
